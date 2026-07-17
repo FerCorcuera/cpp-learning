@@ -1,0 +1,10 @@
+*.o
+*.obj
+*.out
+*.exe
+.DS_Store
+build/
+cmake-build-*/
+
+empty
+hello_println
