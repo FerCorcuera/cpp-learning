@@ -3,6 +3,13 @@
 
 // A function for input with tests
 // Writing tests can be a good way to think about disigning code (TDD appraoch)
+// A stream is an object that provides sequantial acces to data!
+// doest not matter where that data come from or goes to
+// So std:stringstream is a class that need a predefined input
+// And it behaves interestingly, the object stores some stirng and
+// can store the content in deiffernt variables with different types, interpreting their type
+
+bool get_number(some_general_stream & input , double & number)
 
 void test_code()
 {
