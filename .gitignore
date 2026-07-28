@@ -5,6 +5,5 @@
 .DS_Store
 build/
 cmake-build-*/
+buid/
 
-empty
-hello_println
