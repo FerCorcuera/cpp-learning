@@ -36,6 +36,9 @@ int main()
   }
 
   catch(const std::invalid_argument & ex)
+  // here wer are placing this catch first in order to be considered before the next catch
+  // because the next catch type is a broader class of std::invalid_argument, so it also fits in it
+  // the solution? being specific and placing it properly!
   {
     std::cout << ex.what() << '\n';
   }
