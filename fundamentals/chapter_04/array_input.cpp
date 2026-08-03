@@ -57,6 +57,22 @@ void show_numbers(
   }
 }
 
+
+void max_number(
+    const std::array<double, 5u> & numbers
+    )
+{
+  double biggest = numbers[0];
+  for (const auto number:numbers)
+  {
+    if (number > biggest)
+    {
+      biggest = number;
+    }
+  }
+  std::cout << "The biggest numer is " << biggest << '\n';
+}
+
 int main()
 {
   // array_experiment();
@@ -87,7 +103,9 @@ int main()
     // if is like ++X , increments first and then return the value
     // if is like X++, returns the value first and then increments
   }
-  show_numbers(numbers);
+  show_numbers(numbers); // we take the array that we populated and we show it
+  max_number(numbers);
+
 
    
 }
