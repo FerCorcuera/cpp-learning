@@ -41,6 +41,22 @@ void array_experiment()
 
 }
 
+void show_numbers(
+    const std::array<double,5u> & numbers
+    )
+  // we create a function that will pritn the elemnts in an array
+  // we declaring its type using the array template
+{
+  for (const auto number : numbers)
+    // in cpp , when we do for loop we still need to define the types, with the auto
+    // type we deal with it, since we are not going to change the valeus we assign the const
+    // 'number' will be the variable for each element
+    // while 'numbers' represent the collection to iterate over
+  {
+    std::cout << number << '\n';
+  }
+}
+
 int main()
 {
   // array_experiment();
@@ -56,7 +72,7 @@ int main()
     {
       numbers[count] = number.value();
 
-      std::cout << "Got" << number.value() << " thanks! \n";
+      std::cout << "Got " << number.value() << " thanks! \n";
 
       ++count;
 
@@ -71,4 +87,7 @@ int main()
     // if is like ++X , increments first and then return the value
     // if is like X++, returns the value first and then increments
   }
+  show_numbers(numbers);
+
+   
 }
