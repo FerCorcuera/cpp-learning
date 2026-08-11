@@ -31,14 +31,14 @@ int main()
   while(number.has_value())
   {
     numbers.push_back(number.value());
-    std::cout << "Got" << number.value() << "thanks!\n";
+    std::cout << "Got " << number.value() << " thanks!\n";
     number = get_number(std::cin);
 
   }
   std::cout << number.error() << '\n';
 
   std::cout << "You entered\n";
-  for (const auto & number:number)
+  for (const auto & number:numbers)
   {
     std::cout << number << '\n';
   }
