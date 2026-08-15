@@ -1,9 +1,11 @@
 #include <limits>
-#include <input.h>
+#include "input.h"
 
-namespace stock_prices
+// we need to include the header file!
+
+namespace stock_prices // we use the same namespace than in the declaration
 {
-  std::expected<dobule, std::string> get_number(std::istream& input_stream)
+  std::expected<double, std::string> get_number(std::istream& input_stream)
   {
     double number{};
     input_stream >> number;
