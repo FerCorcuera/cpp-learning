@@ -1,5 +1,5 @@
 #include <iostream>
-#include <algorithm>
+#include <algorithm>  // library to include algorithms!
 #include <vector>
 #include "input.h"
 // Includes our header
@@ -37,4 +37,9 @@ int main()
     std::cout << "Min " << result.min << '\n';
     std::cout << "Max " << result.max << '\n';
   }
+  // we are using one of the algorithms in the algorithms library, minmax()
+  // it can be applied to vectors and return both, the min and max value
+  // somethign interesitng is that everything or most of it is written in C++ already,
+  // not like pythn were numpy or other librares ususualy use another laguage udner the hoods
+  // another interesting thing is that 'result' has its own type, it is not a double nor a container, it ia special constructor for this function
 }
