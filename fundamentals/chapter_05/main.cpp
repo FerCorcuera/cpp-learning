@@ -1,8 +1,11 @@
 #include <iostream>
 #include <algorithm>  // library to include algorithms!
 #include <vector>
+
 #include "input.h"
 // Includes our header
+#include "analysis.h"
+
 
 std::vector<double> get_prices(std::istream & input_stream)
 {
@@ -25,23 +28,41 @@ std::vector<double> get_prices(std::istream & input_stream)
   return numbers;
 }
 
-
 int main()
 {
-  auto prices = get_prices(std::cin); 
-  //important, we need to pass by reference the stream, streams can't be cpied
-  // and is convenient not to copy them, just link directly the value int o the function
-  if(!prices.empty())
+  stock_prices::test_analysis();
+  auto prices = get_prices(std::cin);
+  if (!prices.empty())
   {
     auto result = std::ranges::minmax(prices);
-    std::cout << "Min  " << result.min << '\n';
-    std::cout << "Max  " << result.max << '\n';
+    std::cout  << "min " << result.min << '\n';
+    std::cout << "max " << result.max << '\n';
 
-    auto invalid = std::ranges::count_if(prices, stock_prices::negative);
-    std::cout << invalid << "prices below zero \n";
+    // we call the minmax function from std library that... does that, find the min and max xd
+
   }
-  // we are using one of the algorithms in the algorithms library, minmax()
-  // it can be applied to vectors and return both, the min and max value
-  // somethign interesitng is that everything or most of it is written in C++ already,
-  // not like pythn were numpy or other librares ususualy use another laguage udner the hoods
-  // another interesting thing is that 'result' has its own type, it is not a double nor a container, it ia special constructor for this function }
+
+  auto invalid = std::ranges::count_if(prices, stock_prices::negative);
+  std::cout << invalid << " prices below zero  \n";
+
+  // we are calling count_if function in combine with our negative function!
+  // the count_if functions counts the elements that satisfy a condition
+  // here our condition is given by the inline funciton that we created
+  // the second parameter is the condition, something like defining a lambda function
+
+  auto erased = std::erase_if(prices, stock_prices::negative);
+  std::cout << erased << " prices below zero eliminated \n";
+
+  // with erase if we eliminate elemetns from a container!
+  // similarly it needs a predicate and a conatiner
+  // improtant to mention that erase_if erased the input variable and returns the number of erased values
+  
+  // we also can do it using the old way:
+  
+  auto invalid_old = std::count_if(
+      prices.begin(), prices.end(), stock_prices::negative
+      );
+
+  std::cout << invalid_old << " prices below zero using older way \n";
+
+}

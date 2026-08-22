@@ -16,6 +16,9 @@ namespace stock_prices // we reopen the namespace
   {
     return value < 0.0;
   }
+  std::vector<double> remove_invalid(std::vector<double> prices);
+
+  void test_analysis();
 }
 
 
