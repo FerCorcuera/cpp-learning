@@ -12,7 +12,7 @@ std::vector<double> get_prices(std::istream & input_stream)
   while(number.has_value())
   {
     numbers.push_back(number.value());
-    std::cout << "> ";
+    std::cout << ">  ";
     number = stock_prices::get_number(input_stream);
 
   }
@@ -34,12 +34,14 @@ int main()
   if(!prices.empty())
   {
     auto result = std::ranges::minmax(prices);
-    std::cout << "Min " << result.min << '\n';
-    std::cout << "Max " << result.max << '\n';
+    std::cout << "Min  " << result.min << '\n';
+    std::cout << "Max  " << result.max << '\n';
+
+    auto invalid = std::ranges::count_if(prices, stock_prices::negative);
+    std::cout << invalid << "prices below zero \n";
   }
   // we are using one of the algorithms in the algorithms library, minmax()
   // it can be applied to vectors and return both, the min and max value
   // somethign interesitng is that everything or most of it is written in C++ already,
   // not like pythn were numpy or other librares ususualy use another laguage udner the hoods
-  // another interesting thing is that 'result' has its own type, it is not a double nor a container, it ia special constructor for this function
-}
+  // another interesting thing is that 'result' has its own type, it is not a double nor a container, it ia special constructor for this function }
