@@ -31,7 +31,9 @@ std::vector<double> get_prices(std::istream & input_stream)
 int main()
 {
   stock_prices::test_analysis();
+
   auto prices = get_prices(std::cin);
+
   if (!prices.empty())
   {
     auto result = std::ranges::minmax(prices);

@@ -22,6 +22,30 @@ namespace stock_prices
     auto got = remove_invalid({-1.2,3.5});
     assert(got.size() == 1);
     assert(got[0] == 3.5);
+
+    try
+    {
+      average({});
+      assert(false);
+    }
+    catch(const std::exception &)
+    {
+
+    }
+
+    assert(average({1.0}) == 1.0)
+  }
+
+  double average(const std::vector<double> & prices)
+  {
+    // double sum{0,0};
+    // for(const double & price: prices)
+    // {
+    //   sum += price;
+    // }
+    //
+    // return sum/prices.size();
+    return 0.0;
   }
 }
 
