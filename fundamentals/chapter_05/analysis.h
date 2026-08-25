@@ -18,6 +18,8 @@ namespace stock_prices // we reopen the namespace
   std::vector<double> remove_invalid(std::vector<double> prices);
 
   void test_analysis();
+
+  double average(const std::vector<double> & prices);
 }
 
 

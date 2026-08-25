@@ -2,6 +2,7 @@
 #include <cassert>
 #include <iostream>
 #include <vector>
+#include <numeric>
 
 #include "analysis.h"
 #include "input.h"
@@ -14,6 +15,20 @@ namespace stock_prices
     prices.erase(new_end, prices.end());
     return prices;
     
+  }
+
+
+  double average(const std::vector<double> & prices)
+  {
+    if(prices.empty())
+      throw std::invalid_argument("Prices cannot be empty");
+
+    return std::accumulate(prices.begin(),
+        prices.end(),
+        double{})/prices.size();
+
+
+   
   }
 
 
@@ -33,20 +48,10 @@ namespace stock_prices
 
     }
 
-    assert(average({1.0}) == 1.0)
+    assert(average({1.0}) == 1.0);
   }
 
-  double average(const std::vector<double> & prices)
-  {
-    // double sum{0,0};
-    // for(const double & price: prices)
-    // {
-    //   sum += price;
-    // }
-    //
-    // return sum/prices.size();
-    return 0.0;
-  }
+  
 }
 
 
