@@ -11,9 +11,22 @@ namespace stock_prices
 {
   std::vector<double> remove_invalid(std::vector<double> prices)
   {
-    auto new_end = std::remove_if(prices.begin(), prices.end(), negative);
-    prices.erase(new_end, prices.end());
-    return prices;
+    // auto new_end = std::remove_if(prices.begin(), prices.end(), negative);
+    // prices.erase(new_end, prices.end());
+    // return prices;
+    for(auto iterator = prices.begin();
+        iterator != prices.end();
+       )
+    {
+      if(negative(*iterator))
+        iterator = prices.erase(iterator);
+      else
+        ++iterator;
+
+    }
+
+    return prices
+    
     
   }
 
