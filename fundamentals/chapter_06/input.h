@@ -2,7 +2,7 @@
 
 #include <expected>
 #include <istream>
-#include <istream>
+#include <functional>
 #include <string>
 #include <vector>
 
