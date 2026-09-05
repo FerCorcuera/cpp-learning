@@ -1,7 +1,9 @@
+#include <algorithm>
 #include <cassert>
 #include <iostream>
 #include <vector>
 #include <numeric>
+#include <stdexcept>
 
 #include "analysis.h"
 #include "input.h"
@@ -33,6 +35,31 @@ namespace stock_prices
         prices.end(), // end
         double{})/prices.size(); // initial value (now at zero)
 
+  }
+
+  double profit_on_first_uptick(const std::vector<double> & prices)
+  {
+    if(prices.empty())
+      throw std::invalid_argument("Prices cannot be empty!!");
+
+    const double first = prices.front();
+    auto where = std::ranges::find_if(prices,
+        [first](double price){return price > first;}
+        );
+      // here we iterate through the values in prices to check for the first price
+      // that is more than the first price
+
+
+    if(where != prices.end())
+    {
+      return *where - first; // checks that we are not at the end, that would mean that no price was higher than the fisrt one
+      
+    }
+    else
+    {
+      return 0.0;
+    }
+      
   }
 
   void test_analysis()

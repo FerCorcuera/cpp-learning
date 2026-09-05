@@ -44,6 +44,11 @@ int main()
       );
 
   std::cout << "with average > " << mean << '\n';
+  
+  double potential_profit =
+    stock_prices::profit_on_first_uptick(valid_prices_as_vector);
+
+  std::cout << "Potenfial profit given the first price > " << potential_profit << '\n' ;
 
 
 }
