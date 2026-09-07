@@ -62,6 +62,21 @@ namespace stock_prices
       
   }
 
+  bool required_profit_possible(const std::vector<double> & prices,
+      double required_profit)
+  {
+    const double first = prices.front();
+    auto where = std::ranges::find_if(prices,
+        [first, required_profit] (double price)
+        {
+        return (price - first) >= required_profit;
+        }
+        // important: where does not store the value! it is a pointer, it points to the value that matches the condition
+        );
+    return where != prices.end(); // we return a boolean type!
+  }
+
+
   void test_analysis()
   {
     auto got = remove_invalid({-1.3,3.5});

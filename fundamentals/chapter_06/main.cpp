@@ -50,5 +50,12 @@ int main()
 
   std::cout << "Potenfial profit given the first price > " << potential_profit << '\n' ;
 
+  const double required_profit = 1.75;
+
+  bool possible =
+    stock_prices::required_profit_possible(valid_prices_as_vector, required_profit);
+
+  std::cout << "Requiered profit possible > " << std::boolalpha << possible << '\n';
+
 
 }
