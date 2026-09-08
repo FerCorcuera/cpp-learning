@@ -67,8 +67,10 @@ namespace stock_prices
   {
     const double first = prices.front();
     auto where = std::ranges::find_if(prices,
-        [first, required_profit] (double price)
+        [first, required_profit] (double price) // if we add mutable we could change captures valeus
         {
+        // and do things like:
+        // first += 42.0
         return (price - first) >= required_profit;
         }
         // important: where does not store the value! it is a pointer, it points to the value that matches the condition
