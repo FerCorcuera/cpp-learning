@@ -71,6 +71,9 @@ namespace stock_prices
         {
         // and do things like:
         // first += 42.0
+        // if we want to campture everything by value use '='
+        // if we want to capture everything by reference use &
+        // we will try to avoid them , if we add several parameters, maybe a lambda is not a best option
         return (price - first) >= required_profit;
         }
         // important: where does not store the value! it is a pointer, it points to the value that matches the condition
