@@ -10,6 +10,7 @@ namespace stock_prices
 
 {
   std::expected<double, std::string> get_number(std::istream& input_stream)
+  // now we ar enot reading the data from a stream we will have it randomly generated
   {
     double number{};
     input_stream >> number;
@@ -23,13 +24,14 @@ namespace stock_prices
         std::numeric_limits<std::streamsize>::max(),
         '\n'
         );
-    return std::unexpected{"That is not a number"}
+    return std::unexpected{"That is not a number"};
   }
 
 
   std::vector<double> get_prices(double price, size_t count)
   {
     std::vector<double> prices(count);
+    // we can deifne a vector also like this, that wil create a "count" length vector filled with zeros
     const double step = price/100;
 
     std::random_device rd{};
@@ -50,12 +52,12 @@ namespace stock_prices
 
   void test_input()
   {
-std::stringstream no_input{""};
-    auto no_op = [](){};
-    assert(get_prices(no_input, no_op).empty());
-    
-    std::stringstream some_input{"1"};
-    assert(get_prices(some_input, no_op).size() == 1);
+    // std::stringstream no_input{""};
+    // auto no_op = [](){};
+    // assert(get_prices(no_input, no_op).empty());
+    //
+    // std::stringstream some_input{"1"};
+    // assert(get_prices(some_input, no_op).size() == 1);
   }
 
 }
